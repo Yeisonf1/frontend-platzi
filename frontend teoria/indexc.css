@@ -35,3 +35,28 @@
  .item:nth-child(2n +1){
     background: blue;
 }
+.section-card{
+    display: flex;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+    justify-content: center;
+}
+.card
+{
+
+    width: 200px;
+    height: 250px;
+    background-color:aquamarine;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+.card img {   
+    /*margin-top: 5px;*/
+    width: 100%;
+
+}
+.card p:nth-child(3){
+    color: rgb(110, 61, 20);
+}
