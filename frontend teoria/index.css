@@ -1,0 +1,189 @@
+/*Estructura css*/
+selector{
+    propiedad: valor;
+}
+/*Selectores Basicos*/
+De tipo     div{...}
+De clase        .elemento{...}
+De indeterminate    #id-del-elemento
+De atributo        a[href="..."]{...}
+UNIVERSAL       *{...}
+
+/*Selectores COmbinadores*/
+
+Hijos descendientes     div p
+Hijo directo        div > p
+Elemento adyacente div + p
+General de hermanas div ~ p
+/*ejemplo*/
+div ~ p{
+    propiedad: valor;
+}
+
+/*Tipos de slectores
+
+1 pseudo-clases :
+2 pseudo-elementos :: */
+
+/*LLegan a las actividades  que llegan al usuario, como
+pasar el mouse por encima del boton y mostrar o cambiar 
+sombra  o color*/
+:active
+:focus
+:hover
+:nth-child(n)
+
+ejemplo
+p {
+    color:red;
+}
+al pasar el mouse por encima; cambia al color azul
+
+p :hover{
+    color:blue;
+}
+
+/*Permite acceder a elementos de html que normalmente
+ no son accesibles, por ejemplo la primera letra de un texto*/
+::after
+::before
+::first-letter
+::placeholder
+
+tener la primera letra con la propiedad de otro color
+
+p::first-letter{
+    color: aqua;
+}
+
+                        CASCADA Y ESPECIFICDAD
+
+/*lAS REGLAS que esten en la parte inferior
+van a sobreescribir las reglas ubicadas en la parte superios
+en este caso color Blue es superior y va imprimir el 
+blue sobre el rojo*/
+h1 {
+    color:red;
+    }
+h1 {
+    color: blue;
+}
+
+
+ESPECIFICIDAD
+
+/*
+Para saber que reglas tienen mayor especificidad
+se pueden tutlizar sus valores en numeros para calcular que
+regla puede prevalecer sobre las otras
+*/
+x0000 !important
+ x000 Estilos en linea
+  x00 #id
+   x0 Clases, atributos y pseudoclases
+    x Elementos y pseudoelementos
+    0 Selector Universal
+/*id es superior a la clase*/
+#elid{
+    color:red;
+}
+.clase{
+    color: blue;
+}
+
+
+        TIPOS  DE  DISPLAYS
+/*visualicacion de los elementos en la interfaz*/
+
+Block ----
+inline - - 
+inline-block - - 
+flex        |- - -|
+Grid |- -|
+     |- -|
+
+     DISPLAY MAS USADOS
+
+FLEX - GRID
+
+
+
+
+FLEX /* Codigo que manipula una cantidad de divs en 
+conjunto de sus hijo, flex sirve para orientar  los elementos
+*/
+.container {
+    height: 200px;
+    display: flex;
+    background: greenyellow;
+    /*justify-content: center;*/ /*centra de dere a izq*/
+    /*align-items: center;*/ /*centra de wid a heig*/
+    flex-direction: column; /*si pone de lfecha o de columna el contenido*/
+    
+}
+/*para poder ver que pasa dentro del div container 
+y saber que sucede o que pasa con los elementos hijos (item)
+dentro del container*/
+.item {
+    width: 30px;
+    height: 30px;
+    background: green;
+}
+.container .item:nth-child(2n + 1){
+    background: yellow;
+}
+
+GRID /*Se le pueden agregar filas como columnas, revisar
+la documentacion par ver sus distintas funcionalidades*/
+
+
+
+                    //COLAPSO DE MARGENES
+
+ /*Cuando hay dos elementos de tipo bloque uno de bajo del
+ otro  las margenes  se colpasan  */
+ /*Pero con flexbox o Grid no sucede porque ya hay un contenedor
+ */ 
+
+
+                    POSICIONAMIENTO
+
+/*eL POCISIONAMIENTO EN CSS 
+si hay un cotenedor y tengo un hijo dentro
+ de este cont,... entonces le agrego un position: absolute; 
+ para que se mueva solo dentro del contenedor y no por fuera de este
+*/
+.child{
+    position: absolute;
+}
+/*fixed para que l elemeno se quede fijo en donde se posiciona
+por defecto*/
+.nav{
+    position: fixed;
+}
+/*en una lista lo que hace es superponer el padre mientras 
+los hijos van pasando, pero cuando llega a otro adre, este
+cambia y mientras suceden los hijos al dar skrol en la pantalla-contenido*/
+
+ul lista{
+    position: sticky;
+
+}
+
+/*z. index para darle prioridad para lo que se va a ver primero
+o en mayor importancia en la pantalla, como el las ventanas modal
+*/
+
+/*En el ejemplo se el orden de prioridad e el que se muestra algo
+va a quedar en  el y-index, y la relevancia por medio 
+de un numero, en este casi 5-4 etc que es prioridad 5 sobre el 4*/
+/*si en un caso de que el poscionamiento en un elemto hijo
+se vea interrumpida por otra que no sea el padre, entonces es 
+porque otro elemento ajeno es hermano del padre y si el padre no
+fucnona,el hermano tomara su lugar y sera maro que el hijo inicial*/
+.one{
+    z-index: 5;
+}
+.two {
+    z-index: 4;
+}
